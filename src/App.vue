@@ -10,10 +10,10 @@ import {
   NavigationMenuLink
 } from "@/components/ui/navigation-menu";
 
-import ThemeToggle from "./components/ThemeToggle.vue";
 import HeroSection from "./components/HeroSection.vue";
-// import ExperienceTimeLine from "./components/ExperienceTimeline.vue";
-// import ProjectCard from "./components/ProjectCard.vue";
+import ExperienceTimeline from "./components/ExperienceTimeline.vue";
+import ProjectCard from "./components/ProjectCard.vue";
+import ThemeToggle from "./components/ThemeToggle.vue";
 
 const isDarkMode = ref(false);
 
@@ -40,21 +40,21 @@ const toggleMode = () => {
 </script>
 
 <template>
-  <div class="min-h-screen">
+  <div class="min-h-screen flex flex-col items-center">
     <NavigationMenu>
       <NavigationMenuList>
 
         <NavigationMenuItem>
-          <Button variant="ghost" class="mr-2">Sobre Mim</Button>
+          <Button variant="ghost" class="mr-2 text-xl">Sobre Mim</Button>
         </NavigationMenuItem>
 
         <NavigationMenuItem>
-          <Button variant="ghost" class="mr-2">Experiencias</Button>
+          <Button variant="ghost" class="mr-2 text-xl">Experiencias</Button>
         </NavigationMenuItem>
 
         <NavigationMenuItem>
           <NavigationMenuTrigger>
-            <Button variant="ghost" class="mr-2">Projetos</Button>
+            <Button variant="ghost" class="mr-2 text-xl">Projetos</Button>
           </NavigationMenuTrigger>
 
           <NavigationMenuContent>
@@ -81,10 +81,11 @@ const toggleMode = () => {
       </NavigationMenuList>
     </NavigationMenu>
 
-    <main class="container mx-auto px-4 py-8 space-y-16">
+    <main class="container justify-center place-items-center mx-auto px-4 py-8 space-y-16">
       <HeroSection />
-      <ExperienceTimeLine />
+      <ExperienceTimeline />
       <ProjectCard />
-    </main>
+    </main>  
+
   </div>
 </template>

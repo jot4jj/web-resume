@@ -19,6 +19,7 @@ const handleClick = () => {
     <Button
         variant="ghost"
         @click="handleClick"
+        class="text-xl"
     >
     <slot></slot>
     </Button>
