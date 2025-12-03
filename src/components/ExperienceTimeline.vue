@@ -6,6 +6,7 @@ import {
     CardHeader,
     CardTitle
 } from './ui/card';
+import GradientText from '@/animations/GradientText.vue';
 
 const journey = [
     {
@@ -25,13 +26,22 @@ const journey = [
 
 <template>
 <section>
-    <h2 class="flex justify-center p-4 text-4xl text-primary font-extrabold">Minha Jornada de aprendizado</h2>
+    <h2 class="flex p-4 text-4xl text-primary font-extrabold">
+        <GradientText
+            text="Minha Jornada de aprendizado"
+            :colors="['#ffaa40', '#9c40ff', '#ffaa40']"
+            :animation-speed="6"
+            :show-border="false"
+        />
+    </h2>
 
     <div class="flex justify-evenly gap-10">
         <div v-for="(item, index) in journey">
             <Card>
                 <CardHeader>
-                    <CardTitle>{{ item.title }}</CardTitle>
+                    <CardTitle>
+                        {{ item.title }}
+                    </CardTitle>
                 </CardHeader>
 
                 <CardDescription class="px-4">
