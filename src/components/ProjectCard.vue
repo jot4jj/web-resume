@@ -5,9 +5,10 @@ import {
     CardDescription,
     CardHeader,
     CardTitle,
-    CardContent
+    CardContent,
+    CardFooter
 } from './ui/card';
-import GradientText from '@/animations/GradientText.vue';
+import ScrollFloat from '@/animations/ScrollFloat.vue';
 
 
 const projects = [
@@ -55,33 +56,50 @@ const projects = [
 <template>
     <section >
         <h2 class="flex p-4 text-4xl text-primary font-extrabold">
-            <GradientText
-                text="Meus principais projetos"
-                :colors="['#ffaa40', '#9c40ff', '#ffaa40']"
-                :animation-speed="8"
-                :show-border="false"
-                class-name="your-custom-class"
+            <ScrollFloat
+                children="Meus principais projetos"
+                :animation-duration="animationDuration"
+                :ease="ease"
+                :scroll-start="scrollStart"
+                :scroll-end="scrollEnd"
+                :stagger="stagger"
+                :container-class-name="containerClassName"
+                :text-class-name="textClassName"
+                :scroll-container-ref="{ current: containerRef }"
+                :key="rerenderKey"
             />
         </h2>
 
         <div class="flex gap-10 justify-evenly">
             <div v-for="(item, index) in projects">
-                <Card class="p-4 shadow-2xl">
+                <Card class="shadow-2xl">
                     <CardHeader>
-                        <CardTitle class="text-4xl"> {{ item.title }} </CardTitle>
+                        <img
+                            :src="item.preview"
+                            alt=""
+                            class="rounded-tl-md rounded-tr-md w-full"
+                        >
                     </CardHeader>
+                    <CardContent class="m-4 gap-10 space-y-6">
 
-                    <CardDescription> {{ item.description }} </CardDescription>
-                    
-                    <img
-                        :src="item.preview"
-                        alt=""
-                        class="rounded-md mx-2"
-                    >
-                    <CardContent class="flex justify-around">
-                        <div v-for="i in item.stack">
-                            <img :src="i.iconUrl" alt="stack">
-                        </div>
+                        <CardTitle class="text-4xl w-full justify-center text-center">
+                            {{ item.title }}
+                        </CardTitle>
+
+                        <CardContent class="flex w-full justify-around">
+                            <div v-for="i in item.stack">
+                                <img :src="i.iconUrl" alt="stack">
+                            </div>
+                        </CardContent>
+
+                        <CardDescription class="text-justify">
+                            {{ item.description }}
+                        </CardDescription>
+                        
+                        <CardFooter class="flex justify-around">
+
+                        </CardFooter>
+
                     </CardContent>
                 </Card>
             </div>            
