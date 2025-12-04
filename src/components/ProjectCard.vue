@@ -7,6 +7,7 @@ import {
     CardTitle,
     CardContent
 } from './ui/card';
+import GradientText from '@/animations/GradientText.vue';
 
 
 const projects = [
@@ -53,7 +54,15 @@ const projects = [
 
 <template>
     <section >
-        <h2 class="flex justify-center p-4 text-4xl text-primary font-extrabold">Meus principais Projetos</h2>
+        <h2 class="flex p-4 text-4xl text-primary font-extrabold">
+            <GradientText
+                text="Meus principais projetos"
+                :colors="['#ffaa40', '#9c40ff', '#ffaa40']"
+                :animation-speed="8"
+                :show-border="false"
+                class-name="your-custom-class"
+            />
+        </h2>
 
         <div class="flex gap-10 justify-evenly">
             <div v-for="(item, index) in projects">
