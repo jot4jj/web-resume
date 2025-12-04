@@ -14,7 +14,7 @@ const props = withDefaults(defineProps<GradientTextProps>(), {
   className: '',
   colors: () => ['#ffaa40', '#9c40ff', '#ffaa40'],
   animationSpeed: 8,
-  showBorder: false
+  showBorder: false,
 });
 
 const gradientStyle = computed(() => ({
