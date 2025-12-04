@@ -6,7 +6,7 @@ import {
     CardHeader,
     CardTitle
 } from './ui/card';
-import GradientText from '@/animations/GradientText.vue';
+import ScrollFloat from '@/animations/ScrollFloat.vue';
 
 const journey = [
     {
@@ -22,18 +22,16 @@ const journey = [
         description: 'Estágio com foco em aprendizado, aplicando conhecimentos principalmente de Vue.js, Tailwind CSS'
     },
 ]
+
 </script>
 
 <template>
 <section>
-    <h2 class="flex p-4 text-4xl text-primary font-extrabold">
-        <GradientText
-            text="Minha Jornada de aprendizado"
-            :colors="['#ffaa40', '#9c40ff', '#ffaa40']"
-            :animation-speed="6"
-            :show-border="false"
-        />
-    </h2>
+    <ScrollFloat
+        children="Minha jornada de aprendizado"
+        :animation-duration="2"
+        text-class-name="tracking-wide"
+    />
 
     <div class="flex justify-evenly gap-10">
         <div v-for="(item, index) in journey">
@@ -44,7 +42,7 @@ const journey = [
                     </CardTitle>
                 </CardHeader>
 
-                <CardDescription class="px-4">
+                <CardDescription class="px-4 ">
                     {{ item.location }} || {{ item.description }}
                 </CardDescription>
             </Card>
